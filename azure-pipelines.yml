@@ -28,11 +28,7 @@ steps:
 - script: php artisan test
   displayName: 'php artisan test'
 
-- task: DownloadSecureFile@1
-  name: envFile
-  displayName: 'Download .env file from secure file library'
-  inputs:
-    secureFile: .env
+
 - script: cp -f $(envFile.secureFilePath) .env
   displayName: 'Copy Env File'
 - task: Npm@1
